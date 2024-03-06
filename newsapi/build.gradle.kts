@@ -25,7 +25,8 @@ dependencies{
     //serialization
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3")
 
-
+    // annotation
+    implementation("androidx.annotation:annotation:1.7.1")
 
 
 
