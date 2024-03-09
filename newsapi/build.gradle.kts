@@ -18,6 +18,9 @@ dependencies{
     // retrofit
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
 
+    // retrofit serialization converter
+    implementation("com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:1.0.0")
+
 
     //coroutines
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.0")

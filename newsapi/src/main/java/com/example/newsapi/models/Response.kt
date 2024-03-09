@@ -17,5 +17,5 @@ import kotlinx.serialization.Serializable
     @SerialName("totalResults")
    val totalResults: Int,
     @SerialName("articles")
-   val articles: List<Article>
+   val articles: List<E>
 )
