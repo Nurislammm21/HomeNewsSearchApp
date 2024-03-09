@@ -5,8 +5,11 @@ import com.example.newsapi.models.Article
 import com.example.newsapi.models.Language
 import com.example.newsapi.models.Response
 import com.example.newsapi.models.SortBy
+import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.Json
+import okhttp3.MediaType
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.create
@@ -37,10 +40,15 @@ fun newsApi(
     return retrofit.create(NewsApi::class.java)
 }
 private fun retrofit(baseUrl: String,
-                     okHttpClient: OkHttpClient?
+                     okHttpClient: OkHttpClient?,
+                     json: Json = Json
                      ) : Retrofit{
-    return Retrofit.Builder().baseUrl(baseUrl).
-    run {if(okHttpClient != null) client(okHttpClient) else this }.
+
+    val jsonConverterFactory = Json.asConverterFactory(MediaType.get("application/json"))
+
+    return Retrofit.Builder().baseUrl(baseUrl)
+        .addConverterFactory(jsonConverterFactory)
+       .run {if(okHttpClient != null) client(okHttpClient) else this }.
     build()
 }
 
