@@ -1,5 +1,6 @@
 package com.example.newsapi.models
 
+import com.example.newsapi.utils.DateTimeUTCSerializer
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import java.util.Date
@@ -20,6 +21,7 @@ data class Article(
     @SerialName("urlToImage")
     val urlToImage: String,
     @SerialName("publishedAt")
+    @Serializable(with = DateTimeUTCSerializer::class)
     val publishedAt: Date,
     @SerialName("content")
     val content: String

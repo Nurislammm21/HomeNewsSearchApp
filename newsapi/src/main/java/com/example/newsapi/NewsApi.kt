@@ -34,14 +34,15 @@ interface NewsApi {
 
 fun newsApi(
     baseUrl: String,
-    okHttpClient: OkHttpClient? = null
+    okHttpClient: OkHttpClient? = null,
+    json: Json = Json
 ): NewsApi{
-    val retrofit = retrofit(baseUrl,okHttpClient)
-    return retrofit.create(NewsApi::class.java)
+
+    return retrofit(baseUrl,okHttpClient,json).create()
 }
 private fun retrofit(baseUrl: String,
-                     okHttpClient: OkHttpClient?,
-                     json: Json = Json
+                     okHttpClient: OkHttpClient? = null,
+                     json: Json,
                      ) : Retrofit{
 
     val jsonConverterFactory = Json.asConverterFactory(MediaType.get("application/json"))
