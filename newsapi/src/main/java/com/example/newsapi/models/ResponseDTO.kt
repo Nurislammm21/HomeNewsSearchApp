@@ -11,7 +11,7 @@ import kotlinx.serialization.Serializable
 
 
 @Serializable
- data class Response<E>(
+ data class ResponseDTO<E>(
     @SerialName("status")
    val status: String,
     @SerialName("totalResults")
