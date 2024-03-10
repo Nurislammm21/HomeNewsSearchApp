@@ -4,13 +4,11 @@ plugins {
 }
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_1_8
-    targetCompatibility = JavaVersion.VERSION_1_8
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
 }
 
-tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
-    kotlinOptions.jvmTarget = "1.8"
-}
+
 
 dependencies{
 
@@ -20,6 +18,10 @@ dependencies{
 
     // retrofit serialization converter
     implementation("com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:1.0.0")
+
+
+    // retrofit adapters
+    implementation ("com.github.skydoves:retrofit-adapters-result:1.0.9")
 
 
     //coroutines
