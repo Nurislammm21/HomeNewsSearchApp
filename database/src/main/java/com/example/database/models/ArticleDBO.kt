@@ -6,12 +6,12 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import java.util.Date
 
-@Entity
+@Entity(tableName = "articles")
 data class ArticleDBO(
     @PrimaryKey(autoGenerate = true)
     val id: Long,
     @ColumnInfo("source")
-    @Embedded
+    @Embedded()
     val source: Source,
     @ColumnInfo("author")
     val author: String,
